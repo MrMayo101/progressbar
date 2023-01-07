@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+html {
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.container {
+    display: block;
+    position: relative;
+    top: 90%;
+    width: auto;
+}
+
+#canvas {
+    display: block;
+    margin: auto;
+    width: 9.75vh;
+    height: 9.75vh;
+}
+
+.label {
+    height: 4.5vh;
+    width: 600;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: -61vh;
+    padding-top: 2.5vh;
+    padding-left: 1vh;
+    margin: 0 auto;
+    text-align: left;
+    top: 1.20vh;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 1.6vh;
+    text-shadow: -1px -1px 0 rgba(0,0,0, 0.7), 1px -1px 0 rgba(0,0,0, 0.7), -1px 1px 0 rgba(0,0,0, 0.7), 1px 1px 0 rgba(0,0,0, 0.7);
+}
