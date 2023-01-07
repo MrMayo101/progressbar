@@ -323,3 +323,11 @@ end)
 RegisterNUICallback('FinishAction', function(data, cb)
 	Finish()
 end)
+
+RegisterNetEvent('police:client:GetCuffed', function()
+    if isDoingAction then Cancel() end
+end)
+
+RegisterNetEvent('tackle:client:GetTackled', function()
+    if isDoingAction then Cancel() end
+end)
