@@ -1,5 +1,6 @@
 local QBCore = exports["qb-core"]:GetCoreObject()
 
+local isDoingAction, disableMouse, wasCancelled, isAnim, isProp, isPropTwo, runProgThread, prop_net, propTwo_net = false, false, false, false, false, false, false, nil, nil
 local Action = {
     name = "",
     duration = 0,
@@ -30,21 +31,10 @@ local Action = {
         bone = nil,
         coords = { x = 0.0, y = 0.0, z = 0.0 },
         rotation = { x = 0.0, y = 0.0, z = 0.0 },
-    },
+    }
 }
 
-local isDoingAction = false
-local disableMouse = false
-local wasCancelled = false
-local isAnim = false
-local isProp = false
-local isPropTwo = false
-local prop_net = nil
-local propTwo_net = nil
-local runProgThread = false
-
-RegisterNetEvent('progressbar:client:ToggleBusyness')
-AddEventHandler('progressbar:client:ToggleBusyness', function(bool)
+RegisterNetEvent('progressbar:client:ToggleBusyness', function(bool)
     isDoingAction = bool
 end)
 
@@ -295,28 +285,23 @@ function DisableActions(ped)
     end
 end
 
-RegisterNetEvent("progressbar:client:progress")
-AddEventHandler("progressbar:client:progress", function(action, finish)
+RegisterNetEvent("progressbar:client:progress", function(action, finish)
 	Process(action, nil, nil, finish)
 end)
 
-RegisterNetEvent("progressbar:client:ProgressWithStartEvent")
-AddEventHandler("progressbar:client:ProgressWithStartEvent", function(action, start, finish)
+RegisterNetEvent("progressbar:client:ProgressWithStartEvent", function(action, start, finish)
 	Process(action, start, nil, finish)
 end)
 
-RegisterNetEvent("progressbar:client:ProgressWithTickEvent")
-AddEventHandler("progressbar:client:ProgressWithTickEvent", function(action, tick, finish)
+RegisterNetEvent("progressbar:client:ProgressWithTickEvent", function(action, tick, finish)
 	Process(action, nil, tick, finish)
 end)
 
-RegisterNetEvent("progressbar:client:ProgressWithStartAndTick")
-AddEventHandler("progressbar:client:ProgressWithStartAndTick", function(action, start, tick, finish)
+RegisterNetEvent("progressbar:client:ProgressWithStartAndTick", function(action, start, tick, finish)
 	Process(action, start, tick, finish)
 end)
 
-RegisterNetEvent("progressbar:client:cancel")
-AddEventHandler("progressbar:client:cancel", function()
+RegisterNetEvent("progressbar:client:cancel", function()
 	Cancel()
 end)
 
